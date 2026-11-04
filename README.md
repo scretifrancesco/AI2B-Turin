@@ -54,22 +54,6 @@ Details of the method and of the API are in `docs/METODO.md`.
 
 ---
 
-## Design
-
-The interface follows a human-centred design approach (ISO 9241-210): it starts from the decision a funder has to make and from the questions it asks along the way, not from the data. The four screens follow that order: who you are, where the need is, what to fund, why.
-
-| Principle | In the interface |
-|---|---|
-| Visibility | The state of the plan is always shown: the map stays empty until a plan is generated, and a notice appears when choices change after it |
-| Feedback | Every choice updates counters and hints at once; the plan cards show beneficiaries, cost per person and robustness |
-| Constraints | Need levels are three steps (none, some, a lot); a budget below the minimum for one intervention disables the plan |
-| Recognition over recall | Suggested questions in the chat; every figure carries its source |
-| Transparency | Robustness score for each zone; the chat declares that answers come from an AI system |
-
-The design was checked with a heuristic evaluation (Nielsen's ten heuristics and Norman's design principles), an inspection method carried out by the team rather than by end users, together with checks on accessibility (WCAG 2.2) and on the consistency between texts and data. The issues found, such as the low contrast of secondary text and the missing feedback when a zone is excluded, were ranked by severity. A test with real funders is left for future work.
-
----
-
 ## Data
 
 | Source | Datasets |
