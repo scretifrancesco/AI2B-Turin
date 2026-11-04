@@ -64,7 +64,7 @@ Details of the method and of the API are in `docs/METODO.md`.
 | City of Turin, geoportal | boundaries of the statistical zones |
 | Piedmont Region | ASL health facilities; pharmacies |
 
-Raw files are not versioned, while the processed outputs in `data/processed/` are, so the API runs out of the box. Known limits (estimated values for people living alone and widows, distortion of assistance data in central zones, 219 of 251 health facilities located) are described in `docs/METODO.md`.
+Raw files are not versioned, while the processed outputs in `data/processed/` are, so the API starts without rebuilding them. Known limits (estimated values for people living alone and widows, distortion of assistance data in central zones, 219 of 251 health facilities located) are described in `docs/METODO.md`.
 
 ---
 
@@ -86,16 +86,25 @@ Rebuild the indicators after updating `data/raw/`:
 
 ### Models and API
 
+The start scripts were written for the team's Linux server with a GPU: `serve/start_llm.sh` contains paths to that machine and must be adapted before use.
+
 ```bash
-bash serve/start_llm.sh    # Qwen3.8-27B on :8001 and multilingual-e5 on :8002 (GPU)
-bash serve/start_api.sh    # API and front end on http://127.0.0.1:8700
+mkdir -p logs
+bash serve/start_llm.sh    # Qwen3.8-27B on port 8001 and multilingual-e5 on port 8002 (GPU)
+bash serve/start_api.sh    # API and front end on port 8700
 ```
 
-The language model takes about twenty minutes to load. Without it the system still works: map, ranking, plan and robustness do not depend on the model, the plan text becomes a template and the chat falls back to fixed rules.
+On any other machine the API alone starts with:
+
+```bash
+.venv/bin/uvicorn src.api:app --port 8700
+```
+
+The language model takes about twenty minutes to load. Without it the system still works: map, ranking, plan and robustness do not depend on the model, the plan text becomes a template and the chat falls back to fixed rules; only "Compila con l'AI" is unavailable.
 
 ### Front end
 
-Open http://127.0.0.1:8700. The interface has four screens: set up the organisation (or "Compila con l'AI" from free text), map of need, plan, and "Chiedi al piano". A self-running walkthrough is available at http://127.0.0.1:8700/?demo=1.
+Nothing runs on GitHub itself: the front end is served by the API on your machine. Once the API is running, open `http://127.0.0.1:8700` in a browser. The interface has four screens: set up the organisation (or "Compila con l'AI" from free text), map of need, plan, and "Chiedi al piano". Adding `?demo=1` to the address starts a self-running walkthrough.
 
 ### Presentation
 
