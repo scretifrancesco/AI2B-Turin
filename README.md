@@ -6,6 +6,10 @@ Built for the Campionato Universitario AI 2026, Turin stage, 4 November 2026, tr
 
 **Authors:** Francesco Screti, Francesco Rolando & Francesco Lazzarotto
 
+![Compass demo: an organisation describes itself, gets a plan on the map of Turin and asks the chatbot why](docs/demo.gif)
+
+[Full demo video, 98 seconds](presentation/video/demo.webm)
+
 ---
 
 ## Project Structure
