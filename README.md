@@ -4,7 +4,7 @@ Where should a foundation, a third-sector organisation or a public body invest i
 
 Built for the Campionato Universitario AI 2026, Turin stage, 4 November 2026, track 3 Welfare.
 
-**Authors:** Francesco Screti, Francesco Rolando & Francesco Lazzarotto (team Attention Is All We Need)
+**Authors:** Francesco Screti, Francesco Rolando & Francesco Lazzarotto
 
 ---
 
@@ -96,6 +96,21 @@ Open http://127.0.0.1:8700. The interface has four screens: set up the organisat
 ### Presentation
 
 Open `presentation/index.html` in any browser, even offline: fonts, images and the recorded demo are included. Arrow keys move between slides, F enters full-screen presentation mode.
+
+---
+
+## Future work: experts or data?
+
+The weights of the three need indices come from the data: a principal component analysis decides how much each factor counts. The open research question is how much these data-driven indices would disagree with indices built by people who work in the field, such as social workers, health district staff and third-sector operators.
+
+A study to answer it would:
+
+1. ask a panel of experts to weight the same factors, for example by pairwise comparison or by splitting 100 points among them;
+2. build the expert indices on the same 92 zones;
+3. compare the two rankings with a rank correlation and with the overlap of the zones that enter the plan;
+4. look at the zones where data and experts disagree most, which are the most useful cases to discuss with the people who know the territory.
+
+Two further steps would complete it: an evaluation of the interface with foundations and organisations (understanding of the plan, trust in the choices, usability), and data that are missing today, such as older people living alone by zone and the map of social care services.
 
 ---
 
