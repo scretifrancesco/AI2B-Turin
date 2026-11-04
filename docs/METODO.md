@@ -1,4 +1,4 @@
-# Social Impact Planner — Torino
+# Compass, Social Impact Planner per Torino: metodo e API
 
 Indica a un'organizzazione del terzo settore in quali zone statistiche di Torino (92) può generare più impatto
 sociale, con quale intervento, con quale budget e perché. Tutto è calcolato da open data pubblici e ogni
@@ -115,7 +115,7 @@ Le chiamate da un'altra origine sono comunque abilitate (CORS).
 risponde in meno di un secondo, senza testo dell'LLM. `Org` accetta anche `escluse` (zone da non considerare) e
 `priorita` (moltiplicatore dello score per intervento).
 
-Il front-end in `web/` (Bussola Welfare) usa questi endpoint:
+Il front-end in `web/` (Compass) usa questi endpoint:
 - "Compila con l'AI" chiama `/api/org/parse`;
 - "Genera il piano" chiama `/api/plan`, prima senza testo e poi con il testo dell'LLM in background;
 - "Chiedi al piano" chiama `/api/ask`, con risposte locali a regole fisse se l'LLM non risponde.
