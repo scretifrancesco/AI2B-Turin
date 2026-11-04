@@ -192,13 +192,13 @@
   </section>
 
   <!-- 6b AI tecnica -->
-  <section class="slide" data-notes="Come funziona tecnicamente. Il machine learning legge i dati: la PCA ricava i pesi dei fattori di ogni indice e il k-means raggruppa le zone in cinque profili. Gli embedding misurano quanto la missione dell'ente somiglia a ogni intervento. Il modello linguistico, Gemini 3.5 Flash via API, legge la descrizione dell'ente, scrive il piano e risponde in chat. Ma la classifica la decide una formula trasparente, e ogni cifra scritta dall'AI viene controllata sui dati: se non c'è, il testo viene scartato.">
+  <section class="slide" data-notes="Come funziona tecnicamente. Il machine learning legge i dati: la PCA ricava i pesi dei fattori di ogni indice e il k-means raggruppa le zone in cinque profili. Gli embedding misurano quanto la missione dell'ente somiglia a ogni intervento. Il modello linguistico, Qwen3.8-4B in locale, legge la descrizione dell'ente, scrive il piano e risponde in chat. Ma la classifica la decide una formula trasparente, e ogni cifra scritta dall'AI viene controllata sui dati: se non c'è, il testo viene scartato.">
     <div class="head"><div class="brand"><img src="img/logo.png" alt="">Compass</div><div class="count num">07 / 11</div></div>
     <h2 class="r" style="--i:0">Come funziona l'AI<span>Il machine learning legge i dati, l'AI legge le persone, una formula trasparente decide</span></h2>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:40px">
       <div class="card r" style="--i:1;background:var(--sprout);padding:34px"><span class="pill">Dati</span><div class="lbl" style="font-size:36px">PCA e k-means</div><div class="src" style="font-size:24px">Pesi dei fattori dai dati, 5 profili di zona</div></div>
       <div class="card r" style="--i:2;background:var(--water);padding:34px"><span class="pill">Significato</span><div class="lbl" style="font-size:36px">Embedding</div><div class="src" style="font-size:24px">multilingual-e5: missione dell'ente e interventi</div></div>
-      <div class="card r" style="--i:3;background:var(--leaf);padding:34px"><span class="pill">Persone</span><div class="lbl" style="font-size:36px">LLM via API</div><div class="src" style="font-size:24px">Gemini 3.5 Flash: profilo da testo, piano, chat</div></div>
+      <div class="card r" style="--i:3;background:var(--leaf);padding:34px"><span class="pill">Persone</span><div class="lbl" style="font-size:36px">LLM in locale</div><div class="src" style="font-size:24px">Qwen3.8-4B: profilo da testo, piano, chat</div></div>
       <div class="card r" style="--i:4;background:var(--sun);padding:34px"><span class="pill">Decisione</span><div class="lbl" style="font-size:36px">Formula trasparente</div><div class="src" style="font-size:24px">Bisogno, carenza, missione, fattibilità. Solidità su 200 simulazioni</div></div>
     </div>
     <div class="strip r" style="--i:5;margin-top:24px;font-size:32px">Ogni cifra scritta dall'AI <b>è verificata sui dati</b>, altrimenti il testo viene scartato. <b>La classifica non dipende dal modello.</b></div>
