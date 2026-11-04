@@ -35,20 +35,22 @@ AI2B-Turin/
 
 ## How it works
 
-The territorial indicators are computed without knowing the organisation, which enters only at the matching step.
+| Step | What happens |
+|---|---|
+| 1. Zones | `src/build.py` computes need indicators for the 92 zones: ageing, widows, economic assistance, foreign residents, distance from health services. PCA weights them into three indices, k-means groups the zones into five profiles. |
+| 2. Organisation | The organisation fills in a form or describes itself in a few lines; the language model turns the text into a profile. |
+| 3. Matching | Each zone gets a score from need, service gap, mission fit and feasibility. |
+| 4. Plan | The top zones get an intervention, beneficiaries, budget and a robustness index over 200 simulations. |
 
-1. **Territorial intelligence** (`src/build.py`). For each zone the pipeline computes indicators of share of people over 65 and over 80, ageing index and its change from 2013 to 2020, widows and people living alone (estimated from district data), economic assistance per 1,000 residents, share of foreign residents, and the average distance of the zone's house numbers from the nearest health facility, residential facility and pharmacy. A principal component analysis sets the weight of each factor inside its index, and k-means groups the zones into five profiles.
-2. **Organisation profile.** The organisation fills in a form or describes itself in a few lines. The language model turns the text into a structured profile, constrained to the categories and interventions of `src/catalog.json`.
-3. **Matching** (`POST /api/match`). Every zone and intervention pair gets a score from four parts: need fit, service gap, mission fit (semantic similarity between the stated mission and the intervention, with multilingual-e5 embeddings) and feasibility (how well the scale of the zone fits the organisation's budget and staff).
-4. **Planner** (`POST /api/plan`). The top zones get the best intervention, the expected beneficiaries, the budget share and a robustness index: the share of 200 simulations with perturbed weights in which the zone stays in the plan.
+A transparent formula decides the ranking; the language model only writes the text, and every figure it writes is checked against the data.
 
-The ranking is decided by a transparent formula, not by the language model. The model writes the plan text and the chat answers, and every figure it writes is checked against the data: if a number is not there, the text is discarded and replaced by a template.
+| Component | Method |
+|---|---|
+| Language model | Qwen3.8-27B INT4 on vLLM |
+| Embeddings | multilingual-e5-base |
+| Unsupervised learning | PCA and k-means (scikit-learn) |
 
-| Component | Method | Role |
-|---|---|---|
-| Language model | Qwen3.8-27B INT4 served with vLLM | reads the organisation's text, writes the plan, answers questions |
-| Embeddings | multilingual-e5-base | mission fit between the organisation and each intervention |
-| Unsupervised learning | PCA and k-means (scikit-learn) | factor weights and zone profiles |
+Details of the method and of the API are in `docs/METODO.md`.
 
 ---
 
