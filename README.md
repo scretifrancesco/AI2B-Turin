@@ -1,4 +1,4 @@
-# Compass: a Social Impact Planner for Turin
+# Where Should Welfare Funding Go? Explainable Need Indices from Open Data in Turin
 
 Welfare funding needs fine-grained evidence on need, yet Turin's open data are fragmented across municipal and regional sources. Compass is a decision-support system that combines 11 open datasets over the city's 92 statistical zones into three need indices weighted by principal component analysis, and matches them with an organisation's profile through a transparent score. A language model reads the organisation's description, explains the plan and answers questions about it in a somewhat RAG-like way, grounded only in the zone data, with every figure checked. In the demo, a foundation with 150,000 € receives five zones and 360 beneficiaries, with 93% robustness over 200 simulations. Whether expert-defined weights would agree with data-driven ones remains open.
 
